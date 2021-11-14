@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "FjeAea00J1PUBeR8HcFypwqC+OcxdM83IUQx8/ApiION20mOBT/vv52Qf2iPtK132NFsyJLBPKbESI7qoEgPRg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\agran\\Desktop\\Monster Advancer\\MonsterAdvancer\\MonsterAdvancer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\agran\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

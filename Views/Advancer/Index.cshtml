@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form name="form" onsubmit="return false;">
+    <table border=0>
+        <tbody>
+            <tr>
+                <td width="100%" colspan="2">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td>
+                                <h3>Pathfinder Monster Advancer</h3>
+                            </td>                         
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td height="100%" valign="top">
+                    <table height="100%" border=0>
+                        <tr height="5%">
+                            <td valign="top">
+                                <select name="MonsterChooser" style="width: 180">
+                                    <option value='-1'>...</option>
+                                </select>
+                                <select asp-items="@((List<SelectListItem>)ViewData["MonsterList"])">
+                                    <option value="">Pick one</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr height="5%">
+                            <td valign="bottom" align="center">
+                                <input name="Go" type="button" value="Go" onClick="doIt();">
+                                <input name="Reset" type="button" value="Reset" onClick="clearform();">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td><input name="Advanced" type="checkbox" onClick="cleanAdvanced(1);">Advanced&nbsp;&nbsp;</td>
+                            <td><input name="VeryAdvanced" type="checkbox" onClick="cleanAdvanced(2);">Very Advanced&nbsp;&nbsp;</td>
+                            <td><input name="ExtreemlyAdvanced" type="checkbox" onClick="cleanAdvanced(3);">Extremely Advanced&nbsp;&nbsp;</td>
+                            <td><input name="ShowMultiple" type="checkbox" checked />Show Multiple</td>
+                        </tr>
+                        <tr>
+                            <td><input name="Young" onClick="cleanYoung(1);" type="checkbox">Young</td>
+                            <td><input name="VeryYoung" onClick="cleanYoung(2);" type="checkbox">Very Young</td>
+                            <td><input name="ExtreemlyYoung" onClick="cleanYoung(3);" type="checkbox">Extreemly Young</td>
+                            <td><input name="TwoColumn" type="checkbox" checked />Two Columns</td>
+                        </tr>
+                        <tr>
+                            <td><input name="Giant" onClick="cleanGiant(1);" type="checkbox">Giant</td>
+                            <td><input name="VeryGiant" onClick="cleanGiant(2);" type="checkbox">Very Giant</td>
+                            <td><input name="ExtreemlyGiant" onClick="cleanGiant(3);" type="checkbox">Extreemly Giant</td>
+                        </tr>
+                        <tr>
+                            <td><input name="Fiendish" onClick="cleanFeindish(1);" type="checkbox">Fiendish</td>
+                            <td><input name="Celestial" onClick="cleanFeindish(2);" type="checkbox">Celestial</td>
+                            <td>
+                                <input name="Half_Dragon" type="checkbox">Half Dragon&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input name="Half_Fiend" type="checkbox">Half Fiend&nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input name="Skeleton" type="checkbox" onclick="document.form.SkeletonBloody.checked=false;document.form.SkeletonBurning.checked=false;">Skeleton</td>
+                            <td><input name="SkeletonBloody" type="checkbox" onclick="document.form.Skeleton.checked=false;document.form.SkeletonBurning.checked=false;">Bloody Skeleton</td>
+                            <td><input name="SkeletonBurning" type="checkbox" onclick="document.form.Skeleton.checked=false;document.form.SkeletonBloody.checked=false;">Burning Skeleton</td>
+                        </tr>
+                        <tr>
+                            <td><input name="Zombie" type="checkbox" onclick="document.form.ZombieFast.checked=false;document.form.ZombiePlague.checked=false;">Zombie</td>
+                            <td><input name="ZombieFast" type="checkbox" onclick="document.form.Zombie.checked=false;document.form.ZombiePlague.checked=false;">Fast Zombie</td>
+                            <td><input name="ZombiePlague" type="checkbox" onclick="document.form.Zombie.checked=false;document.form.ZombieFast.checked=false;">Plague Zombie</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input name="AugmentSummoning" type="checkbox">Augment Summoning</td>
+                            <td>
+                                Add Racial Hit Dice: <input type="button" value="-" onclick="adjustRHD(-1);" />
+                                <input name="RacialHitDice" type="text" size="1" value="0" maxlength="2" readonly style="text-align:center;" />
+                                <input type="button" value="+" onclick="adjustRHD(1);" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="100%">
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <div id="writeroot">
+                            <div id="monsterDiv">&nbsp;</div>
+                        </div>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
